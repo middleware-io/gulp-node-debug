@@ -1,37 +1,47 @@
 {
-  "name": "gulp-node-inspector",
+  "name": "gulp-node-debug",
   "version": "0.0.1",
-  "description": "Run node inspector from your gulp build.",
+  "description": "Run node-debug from your gulp build: 1. Runs node-inspector. / 2. Runs the supplied script in debug mode / 3. Opens the user's browser, pointing it at the inspector.",
   "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/koemei/gulp-node-inspector.git"
+    "url": "https://github.com/middleware-io/gulp-node-debug.git"
   },
   "keywords": [
     "gulpplugin",
     "node-inspector",
+    "node-debug",
     "debug"
   ],
-  "author": "Koemei",
+  "author": {
+    "name": "Johannes Hoppe",
+    "email": "johannes.hoppe@haushoppe-its.de",
+    "url": "http://haushoppe-its.de/"
+  },
   "contributors": [
+    {
+      "name": "Koemei",
+      "email": "dev@koemei.com",
+      "url": "https://www.koemei.com"
+    },  
     {
       "name": "Alessandro Arnodo",
       "email": "alessandro@arnodo.net"
+    },
+    {
+      "name": "Evgeny Bogdanov",
+      "email": "evgeny.bogdanov@gmail.com"
     }
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/koemei/gulp-node-inspector/issues"
+    "url": "https://github.com/middleware-io/gulp-node-debug/issues"
   },
-  "homepage": "https://github.com/koemei/gulp-node-inspector",
+  "homepage": "https://github.com/middleware-io/gulp-node-debug",
   "dependencies": {
     "gulp-util": "~3.0.2",
     "node-inspector": "~0.8.3"
   },
   "devDependencies": {
-    "mocha": "~2.1.0"
   }
 }
