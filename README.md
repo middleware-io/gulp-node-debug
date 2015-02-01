@@ -1,6 +1,6 @@
 # gulp-node-debug
 
-A gulp node-debug wrapper, which works on top of node-inspector.
+A wrapper around node-inspector for gulp, works similar to the node-debug command.
 
 Perfect for development. Easy to use.
 
@@ -16,22 +16,17 @@ Perfect for development. Easy to use.
 
 ```javascript
 // Gulpfile.js
-var gulp = require('gulp');
-var nodeDebug = require('gulp-node-debug');
 
-gulp.task('node-debug', function () {
-  return nodeDebug({
-    'script': 'app.js'
-    'web-host': '127.0.0.2'
-  });
-});
 ```
+
+Enter `gulp debug` in your shell to start the node-inspector, run the supplied script nad to open the default browser.
 
 ## Options
 
-You can pass an object to `nodeDebug` with options [specified in node-inspector config](https://github.com/node-inspector/node-inspector#options).
-
+You can pass an object to `nodeInspector` with options [specified in node-inspector config](https://github.com/node-inspector/node-inspector#options).  
+Options are written in camelCase style!
 
 ## Credits
 
-This project was forked from [gulp-node-inspector](https://github.com/koemei/gulp-node-inspector) which wraps **node-inspector**. Many thanks to [Koemei](https://github.com/koemei) for the initial work. 
+This project was forked from [gulp-node-inspector](https://github.com/koemei/gulp-node-inspector) which wraps **node-inspector**.  
+Many thanks to [Koemei](https://github.com/koemei) for the initial work. 

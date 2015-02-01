@@ -39,8 +39,11 @@
   },
   "homepage": "https://github.com/middleware-io/gulp-node-debug",
   "dependencies": {
-    "gulp-util": "~3.0.2",
-    "node-inspector": "~0.8.3"
+    "gulp-util": "^3.0.2",
+    "through2": "^0.6.3",
+    "node-inspector": "^0.8.3",
+    "merge": "^1.2.0",
+    "opener": "^1.4.0"
   },
   "devDependencies": {
   }
