@@ -20,11 +20,6 @@
   },
   "contributors": [
     {
-      "name": "Koemei",
-      "email": "dev@koemei.com",
-      "url": "https://www.koemei.com"
-    },  
-    {
       "name": "Alessandro Arnodo",
       "email": "alessandro@arnodo.net"
     },
@@ -43,7 +38,7 @@
     "through2": "^0.6.3",
     "node-inspector": "^0.8.3",
     "merge": "^1.2.0",
-    "opener": "^1.4.0"
+    "biased-opener": "^0.2.2"
   },
   "devDependencies": {
   }

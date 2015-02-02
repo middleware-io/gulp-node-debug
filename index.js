@@ -12,7 +12,7 @@ var through = require('through2'),
     debugServer = require('node-inspector/lib/debug-server'),
     Config = require('node-inspector/lib/config'),
     packageJson = require('node-inspector/package.json'),
-    open = require('opener'),
+    open = require('biased-opener'),
     fork = require('child_process').fork;
 
 var PluginError = gutil.PluginError;
@@ -51,7 +51,17 @@ var nodeDebug = function(opt) {
             startDebuggedProcess(
                 file,
                 function startCallback() {
-                    // 3. a compatible browser must be the default browser
+                    // 3. try to launch the URL in one of those browsers in the defined order
+                    // (but if one of them is default browser, then it takes priority)
+                    open(url, {
+                        preferredBrowsers : ['chrome', 'chromium', 'opera']
+                    }, function (err, okMsg) {
+                        if (err) {
+                            // unable to launch one of preferred browsers for some reason
+                            log(err.message);
+                            log('Please open the URL manually in Chrome/Chromium/Opera or similar browser');
+                        }
+                    });
                     open(url);
                 }, function exitCallback() {
                     
