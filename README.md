@@ -23,8 +23,26 @@ Enter `gulp debug` in your shell to start the node-inspector, run the supplied s
 
 ## Options
 
-You can pass an object to `nodeInspector` with options [specified in node-inspector config](https://github.com/node-inspector/node-inspector#options).  
-Options are written in camelCase style!
+All options are written in camelCase style:
+
+| Option              | Default   | Description |
+| :------------------ | :-------: | :-------- |
+| debugPort           | 5858      | Node/V8 debugger port.<br/>(`node --debug={port}`)
+| webHost             | '0.0.0.0' | Host to listen on for Node Inspector's web interface.<br/>`node-debug` listens on `127.0.0.1` by default.
+| webPort             | 8080      | Port to listen on for Node Inspector's web interface.
+| **node-debug**
+| debugBrk            | true      | Break on the first line.<br/>(`node --debug-brk`)
+| nodejs              | []        | List of string to pass NodeJS options to debugged process.
+| script              | []        | List of string to pass options to debugged process.
+| **node-inspector**
+| saveLiveEdit        | false     | Save live edit changes to disk (update the edited files).
+| preload             | true      | Preload *.js files. You can disable this option<br/>to speed up the startup.
+| inject              | true      | Enable injection of debugger extensions into the debugged process.
+| hidden              | []        | Array of files to hide from the UI,<br/>breakpoints in these files will be ignored.<br/>All paths are interpreted as regular expressions.
+| stackTraceLimit     | 50        | Number of stack frames to show on a breakpoint.
+| sslKey              | ''        | Path to file containing a valid SSL key.
+| sslCert             | ''        | Path to file containing a valid SSL certificate.
+
 
 ## Todo
 
