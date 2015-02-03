@@ -14,7 +14,8 @@ var es = require('event-stream'),
     packageJson = require('node-inspector/package.json'),
     biasedOpen = require('biased-opener'),
     open = require('opener'),
-    fork = require('child_process').fork;
+    fork = require('child_process').fork,
+    enableDestroy = require('server-destroy');
 
 var PluginError = gutil.PluginError;
 var config = new Config([]);
@@ -45,6 +46,8 @@ var nodeDebug = function(opt) {
         });
 
         debugServer.on('listening', function() {
+            
+            enableDestroy(debugServer._httpServer);
 
             var url = this.address().url;
             log(colors.green('Node Inspector is now available at', url));
@@ -55,14 +58,20 @@ var nodeDebug = function(opt) {
                     // 3.
                     openUrl(url);
                 }, function exitCallback() {
-                    log(colors.gray('Requesting debugServer to close.'));
+                    //log(colors.gray('Requesting debugServer to close.'));          
                     debugServer.close();
-                    done();
                 });
         });
 
-        debugServer.on('close', function() {
+        debugServer.on('close', function () {
+            
             log(colors.gray('DebugServer closed.'));
+
+            // WebSocket Server closes the http server only if it was internally created, so it won't do the job for us
+            // And unfortunately debugServer does not clean up _httpServer at all, so it won't do the job for us too
+            // ... so its up to us to destroy it, by killing currently open connections
+            debugServer._httpServer.destroy();
+            done();
         });
 
         debugServer.start(config);

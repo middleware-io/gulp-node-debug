@@ -39,7 +39,8 @@
     "node-inspector": "^0.8.3",
     "merge": "^1.2.0",
     "opener": "^1.4.0",
-    "biased-opener": "^0.2.2"
+    "biased-opener": "^0.2.2",
+    "server-destroy": "^1.0.0" 
   },
   "devDependencies": {
   }
