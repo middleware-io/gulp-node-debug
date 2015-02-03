@@ -1,6 +1,6 @@
 # gulp-node-debug
 
-A wrapper around [node-inspector](https://github.com/node-inspector/node-inspector) for gulp, works similar to the node-debug command.
+A wrapper around [node-inspector](https://github.com/node-inspector/node-inspector) for gulp, has the same functionality as the **node-debug** command.
 
 Perfect for development. Easy to use.
 
@@ -96,8 +96,7 @@ All options are written in camelCase style:
 
 ## Credits
 
-This project was forked from [gulp-node-inspector](https://github.com/koemei/gulp-node-inspector) which wraps **node-inspector** (but does not start a debugged process).  
-All real work was done by [node-inspector](https://github.com/node-inspector/node-inspector).
+This project was forked from [gulp-node-inspector](https://github.com/koemei/gulp-node-inspector) which wraps **node-inspector** (but does not start a debugged process). All real work was done by [node-inspector](https://github.com/node-inspector/node-inspector).
 
 ## License
 
