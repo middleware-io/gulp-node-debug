@@ -1,6 +1,6 @@
 # gulp-node-debug
 
-A wrapper around node-inspector for gulp, works similar to the node-debug command.
+A wrapper around [node-inspector](https://github.com/node-inspector/node-inspector) for gulp, works similar to the node-debug command.
 
 Perfect for development. Easy to use.
 
@@ -14,9 +14,42 @@ Perfect for development. Easy to use.
 
 ## Usage
 
+This is the minimal setup. The file `app.js` will be debugged with default values.
+
 ```javascript
 // gulpfile.js
+var gulp = require('gulp');
+var nodeDebug = require('gulp-node-debug');
+gulp.task('debug', function () {
+    
+    gulp.src(['app.js'])
+        .pipe();
+});
 
+```
+
+This example shows all available options (default values):
+
+```javascript
+// gulpfile.js
+var gulp = require('gulp');
+var nodeDebug = require('gulp-node-debug');
+gulp.task('debug', function() {
+
+  gulp.src([])
+    .pipe(nodeInspector({
+      debugPort: 5858,
+      webHost: '0.0.0.0',
+      webPort: 8080,
+      saveLiveEdit: false,
+      preload: true,
+      inject: true,
+      hidden: [],
+      stackTraceLimit: 50,
+      sslKey: '',
+      sslCert: ''
+    }));
+});
 ```
 
 Enter `gulp debug` in your shell to start the node-inspector, run the supplied script and to open the debug URL in Chrome, Chromium or Opera.
@@ -27,27 +60,48 @@ All options are written in camelCase style:
 
 | Option              | Default   | Description |
 | :------------------ | :-------: | :-------- |
-| debugPort           | 5858      | Node/V8 debugger port.<br/>(`node --debug={port}`)
-| webHost             | '0.0.0.0' | Host to listen on for Node Inspector's web interface.<br/>`node-debug` listens on `127.0.0.1` by default.
+| debugPort           | 5858      | Node/V8 debugger port.
+| webHost             | '0.0.0.0' | Host to listen on for Node Inspector's web interface. `node-debug` listens on `127.0.0.1` by default.
 | webPort             | 8080      | Port to listen on for Node Inspector's web interface.
 | **node-debug**
-| debugBrk            | true      | Break on the first line.<br/>(`node --debug-brk`)
+| debugBrk            | true      | Break on the first line.
 | nodejs              | []        | List of string to pass NodeJS options to debugged process.
 | script              | []        | List of string to pass options to debugged process.
 | **node-inspector**
 | saveLiveEdit        | false     | Save live edit changes to disk (update the edited files).
 | preload             | true      | Preload *.js files. You can disable this option<br/>to speed up the startup.
 | inject              | true      | Enable injection of debugger extensions into the debugged process.
-| hidden              | []        | Array of files to hide from the UI,<br/>breakpoints in these files will be ignored.<br/>All paths are interpreted as regular expressions.
+| hidden              | []        | Array of files to hide from the UI, breakpoints in these files will be ignored. All paths are interpreted as regular expressions.
 | stackTraceLimit     | 50        | Number of stack frames to show on a breakpoint.
 | sslKey              | ''        | Path to file containing a valid SSL key.
 | sslCert             | ''        | Path to file containing a valid SSL certificate.
 
 
-## Todo
-
-This version is more or less a proof of concept. I will add some units-tests if people confirm that it's useful.   
-
 ## Credits
 
-This project was forked from [gulp-node-inspector](https://github.com/koemei/gulp-node-inspector) which wraps **node-inspector**.  
+This project was forked from [gulp-node-inspector](https://github.com/koemei/gulp-node-inspector) which wraps **node-inspector** (but does not start a debugged process).  
+All the real work was done by [node-inspector](https://github.com/node-inspector/node-inspector).
+
+## License
+
+The MIT License (MIT)  
+  
+Copyright (c) 2015 Johannes Hoppe (http://haushoppe-its.de)  
+  
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:  
+  
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.  
+  
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.  
