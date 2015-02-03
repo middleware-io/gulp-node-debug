@@ -69,7 +69,7 @@ var nodeDebug = function(opt) {
 
             // WebSocket Server closes the http server only if it was internally created, so it won't do the job for us
             // And unfortunately debugServer does not clean up _httpServer at all, so it won't do the job for us too
-            // ... so its up to us to destroy it, by killing currently open connections
+            // ... so its up to us to destroy it, by killing all open connections
             debugServer._httpServer.destroy();
             done();
         });
@@ -87,7 +87,7 @@ var nodeDebug = function(opt) {
             if (err) {
                 // unable to launch one of preferred browsers for some reason
                 log(colors.gray('biased-opener:', err.message));
-                log(colors.gray('opening url with default browser instead.'));
+                log(colors.gray('Opening url with default browser instead.'));
                 open(url);
             }
         });
@@ -101,7 +101,7 @@ var nodeDebug = function(opt) {
             return;
         }
         
-        // this will be changed later on. (e.g. picking a file by convention) 
+        // this might be changed later on. (e.g. picking a file by convention) 
         if (!files.length > 1) {
             log(colors.red('More that one file provided. Only one single file can be debugged.'));
             exitCallback();
@@ -129,8 +129,6 @@ var nodeDebug = function(opt) {
 
         startCallback();
     }
-
-
 
     // -------------
 

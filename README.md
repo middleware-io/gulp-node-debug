@@ -20,12 +20,26 @@ This is the minimal setup. The file `app.js` will be debugged with default value
 // gulpfile.js
 var gulp = require('gulp');
 var nodeDebug = require('gulp-node-debug');
-gulp.task('debug', function () {
-    
-    gulp.src(['app.js'])
-        .pipe();
-});
+gulp.task('debug', function() {
 
+    gulp.src(['app.js'])
+        .pipe(nodeDebug());
+});
+```
+
+Add `debugBrk: true` if your script finishes immediately:
+
+```javascript
+// gulpfile.js
+var gulp = require('gulp');
+var nodeDebug = require('gulp-node-debug');
+gulp.task('debug', function() {
+
+    gulp.src(['app.js'])
+        .pipe(nodeDebug({
+            debugBrk: true
+        }));
+});
 ```
 
 This example shows all available options (default values):
@@ -36,19 +50,22 @@ var gulp = require('gulp');
 var nodeDebug = require('gulp-node-debug');
 gulp.task('debug', function() {
 
-  gulp.src([])
-    .pipe(nodeInspector({
-      debugPort: 5858,
-      webHost: '0.0.0.0',
-      webPort: 8080,
-      saveLiveEdit: false,
-      preload: true,
-      inject: true,
-      hidden: [],
-      stackTraceLimit: 50,
-      sslKey: '',
-      sslCert: ''
-    }));
+    gulp.src(['app.js'])
+        .pipe(nodeDebug({
+            debugPort: 5858,
+            webHost: '0.0.0.0',
+            webPort: 8080,
+            debugBrk: false,
+            nodejs: [],
+            script: [],
+            saveLiveEdit: false,
+            preload: true,
+            inject: true,
+            hidden: [],
+            stackTraceLimit: 50,
+            sslKey: '',
+            sslCert: ''
+        }));
 });
 ```
 
@@ -80,7 +97,7 @@ All options are written in camelCase style:
 ## Credits
 
 This project was forked from [gulp-node-inspector](https://github.com/koemei/gulp-node-inspector) which wraps **node-inspector** (but does not start a debugged process).  
-All the real work was done by [node-inspector](https://github.com/node-inspector/node-inspector).
+All real work was done by [node-inspector](https://github.com/node-inspector/node-inspector).
 
 ## License
 
