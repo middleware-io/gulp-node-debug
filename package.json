@@ -1,6 +1,6 @@
 {
   "name": "gulp-node-debug",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Run node-debug from your gulp build: 1. Runs node-inspector. / 2. Runs the supplied script in debug mode / 3. Opens the user's browser, pointing it at the inspector.",
   "main": "index.js",
   "repository": {
@@ -35,7 +35,7 @@
   "homepage": "https://github.com/middleware-io/gulp-node-debug",
   "dependencies": {
     "gulp-util": "^3.0.2",
-    "through2": "^0.6.3",
+    "event-stream": "^3.2.2",
     "node-inspector": "^0.8.3",
     "merge": "^1.2.0",
     "opener": "^1.4.0",
