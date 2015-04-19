@@ -71,6 +71,28 @@ gulp.task('debug', function() {
 
 Enter `gulp debug` in your shell to start the node-inspector, run the supplied script and to open the debug URL in Chrome, Chromium or Opera.
 
+
+## How to debug Mocha unit-tests?
+
+You have to start _mocha as the debugged process. Try out the **watch** option, which makes sure that the debugged process does not end after execution of all tests. 
+
+```javascript
+// gulpfile.js
+var gulp = require('gulp');
+var nodeDebug = require('gulp-node-debug');
+gulp.task('debugTest', function() {
+
+    var mochaScript = path.join(__dirname, 'node_modules/mocha/bin/_mocha');
+
+    gulp.src([mochaScript])
+        .pipe(nodeDebug({
+            debugBrk: true,
+            script: ['--watch'],
+        }));
+});
+   
+```
+
 ## Options
 
 All options are written in camelCase style:
@@ -92,7 +114,6 @@ All options are written in camelCase style:
 | stackTraceLimit     | 50        | Number of stack frames to show on a breakpoint.
 | sslKey              | ''        | Path to file containing a valid SSL key.
 | sslCert             | ''        | Path to file containing a valid SSL certificate.
-
 
 ## Credits
 
