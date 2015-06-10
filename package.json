@@ -1,6 +1,6 @@
 {
   "name": "gulp-node-debug",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Run node-debug from your gulp build: 1. Runs node-inspector. / 2. Runs the supplied script in debug mode / 3. Opens the user's browser, pointing it at the inspector.",
   "main": "index.js",
   "repository": {

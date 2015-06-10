@@ -1,5 +1,10 @@
 # gulp-node-debug
 
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url] 
+<!--[![Dependency Status][daviddm-url]][daviddm-image]-->
+<!--[![Coverage Status][coveralls-image]][coveralls-url]-->
+
 A wrapper around [node-inspector](https://github.com/node-inspector/node-inspector) for gulp, has the same functionality as the **node-debug** command.
 
 Perfect for development. Easy to use.
@@ -142,3 +147,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.  
+
+
+[npm-url]: https://npmjs.org/package/gulp-node-debug
+[npm-image]: https://badge.fury.io/js/gulp-node-debug.svg
+[travis-url]: https://travis-ci.org/middleware-io/gulp-node-debug
+[travis-image]: https://travis-ci.org/middleware-io/gulp-node-debug.svg?branch=master
+[daviddm-url]: https://david-dm.org/middleware-io/gulp-node-debug.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/middleware-io/gulp-node-debug
+[coveralls-url]: https://coveralls.io/r/middleware-io/gulp-node-debug
+[coveralls-image]: https://coveralls.io/repos/middleware-io/gulp-node-debug/badge.png
