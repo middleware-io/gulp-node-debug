@@ -1,8 +1,8 @@
 # gulp-node-debug
 
 [![NPM version][npm-image]][npm-url]
-<!--[![Build Status][travis-image]][travis-url]-->
 [![Dependency Status][daviddm-url]][daviddm-image]
+<!--[![Build Status][travis-image]][travis-url]-->
 <!--[![Coverage Status][coveralls-image]][coveralls-url]-->
 
 A wrapper around [node-inspector](https://github.com/node-inspector/node-inspector) for gulp, has the same functionality as the **node-debug** command.
