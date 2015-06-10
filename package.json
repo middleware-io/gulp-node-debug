@@ -34,13 +34,13 @@
   },
   "homepage": "https://github.com/middleware-io/gulp-node-debug",
   "dependencies": {
-    "gulp-util": "^3.0.2",
-    "event-stream": "^3.2.2",
-    "node-inspector": "^0.8.3",
+    "gulp-util": "^3.0.5",
+    "event-stream": "^3.3.1",
+    "node-inspector": "^0.10.0",
     "merge": "^1.2.0",
-    "opener": "^1.4.0",
-    "biased-opener": "^0.2.2",
-    "server-destroy": "^1.0.0" 
+    "opener": "^1.4.1",
+    "biased-opener": "^0.2.5",
+    "server-destroy": "^1.0.1" 
   },
   "devDependencies": {
   }
