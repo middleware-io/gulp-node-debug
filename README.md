@@ -1,6 +1,6 @@
 
 ## This project is not maintained anymore. The code does not run on node 4+ and I don't have time and moot to fix that.
-[I reommend the debugger from Visual Studio Code as a great replacement:](https://code.visualstudio.com/docs/editor/debugging)
+[I recommend the debugger from Visual Studio Code as a great replacement:](https://code.visualstudio.com/docs/editor/debugging)
 [![Screenshot](https://raw.githubusercontent.com/wiki/middleware-io/gulp-node-debug/debugging_hero.png)](https://code.visualstudio.com/docs/editor/debugging)
 
 --------
